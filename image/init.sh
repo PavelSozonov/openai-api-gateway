@@ -9,7 +9,7 @@ set -xe
 nginx &
 
 # Wait for Nginx to be ready
-sleep 10
+sleep 5
 
 # Request a certificate from Let's Encrypt
 certbot --nginx -d ${DOMAIN} --non-interactive --agree-tos --email ${EMAIL}
