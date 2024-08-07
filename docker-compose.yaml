@@ -6,17 +6,6 @@ services:
     container_name: openai-api-gateway
     ports:
       - 8080:80
-    environment:
-      - GATEWAY_API_KEY=super_secret_api_key                              # Required
-      - OPENAI_API_KEY=your_api_key_here                                  # Required
-      - OPENAI_API_HOST=https://api.openai.com                            # Optional
-      - RATE_LIMIT=20r/m                                                  # Optional
-      - CLIENT_MAX_BODY_SIZE=25m                                          # Optional
-      - CORS_ORIGIN=*                                                     # Optional
-      - CORS_METHODS=*                                                    # Optional
-      - CORS_HEADERS=*                                                    # Optional
-      - CORS_CREDENTIALS=true                                             # Optional
-      - CORS_MAX_AGE=86400                                                # Optional
-      - CONTENT_LENGTH=0                                                  # Optional
-      - CONTENT_TYPE=text/plain charset=UTF-8                             # Optional
+    env_file:
+      - .env
     restart: unless-stopped

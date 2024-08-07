@@ -13,7 +13,7 @@ ENV CONTENT_LENGTH="0"
 ENV CONTENT_TYPE="text/plain charset=UTF-8"
 
 # Copy gateway configuration
-COPY gateway-nginx.conf /etc/nginx/conf.d_template/default.conf
+COPY gateway-nginx.conf.template /etc/nginx/templates/gateway-nginx.conf.template
 
 # Copy and run init script to inject environment variables into configuration and run nginx
 COPY init.sh /docker-entrypoint.d/init.sh

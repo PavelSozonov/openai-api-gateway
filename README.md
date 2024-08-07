@@ -9,9 +9,11 @@ openai-api-gateway/
 │
 ├── docker-compose.yaml
 ├── docker-compose-azure.yaml
+├── .env
+├── .env-azure
 ├── image/
 │   ├── Dockerfile
-│   ├── gateway-nginx.conf
+│   ├── gateway-nginx.conf.template
 │   └── init.sh
 └── README.md
 ```
@@ -20,8 +22,10 @@ openai-api-gateway/
 
 - `docker-compose.yaml`: Docker Compose configuration file to define and run the OpenAI API gateway service.
 - `docker-compose-azure.yaml`: Docker Compose configuration file to define and run the Azure OpenAI API gateway service.
+- `.env`: Environment variables file for sensitive and configurable settings for the OpenAI API gateway.
+- `.env-azure`: Environment variables file for sensitive and configurable settings for the Azure OpenAI API gateway.
 - `image/Dockerfile`: Dockerfile to build the NGINX gateway image.
-- `image/gateway-nginx.conf`: NGINX configuration file for setting up the gateway.
+- `image/gateway-nginx.conf.template`: NGINX configuration file template for setting up the gateway.
 - `image/init.sh`: Initialization script to replace environment variables and start NGINX.
 - `README.md`: Project documentation.
 
@@ -36,6 +40,8 @@ openai-api-gateway/
    ```
 
 ## Environment Variables
+
+Environment variables are defined in the `.env` and `.env-azure` files:
 
 - `GATEWAY_API_KEY`: The API key for the gateway (Required).
 - `OPENAI_API_KEY`: The API key for OpenAI (Required).
@@ -52,7 +58,7 @@ openai-api-gateway/
 
 ## Usage
 
-After starting the containers, the API gateways will be available on the specified ports. Adjust the environment variables in the `docker-compose.yaml` and `docker-compose-azure.yaml` files as needed.
+After starting the containers, the API gateways will be available on the specified ports. Adjust the environment variables in the `.env` and `.env-azure` files as needed.
 
 ## License
 
