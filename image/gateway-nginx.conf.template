@@ -19,8 +19,8 @@ server {
     ssl_ciphers "EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH";
 
     # Other existing configurations
-    limit_req_zone $binary_remote_addr zone=api:10m rate=${RATE_LIMIT};
-    client_max_body_size ${CLIENT_MAX_BODY_SIZE};
+    # limit_req_zone $binary_remote_addr zone=api:10m rate=${RATE_LIMIT};
+    # client_max_body_size ${CLIENT_MAX_BODY_SIZE};
 
     location / {
 
@@ -55,9 +55,9 @@ server {
         proxy_ssl_server_name on;
 
         # Enable limiting of requests by defining its parameters with this directive
-        limit_req zone=api;
+        # limit_req zone=api;
 
         # Return client status 429 (Too Many Requests) when the rate of requests exceeds the defined limit
-        limit_req_status 429;
+        # limit_req_status 429;
     }
 }
