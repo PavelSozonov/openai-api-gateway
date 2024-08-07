@@ -1,6 +1,6 @@
 # OpenAI API Gateway
 
-This project sets up an NGINX gateway for OpenAI API with rate limiting and CORS support using Docker and Docker Compose.
+This project sets up an NGINX gateway for OpenAI API with rate limiting and CORS support using Docker and Docker Compose. It also includes Let's Encrypt for SSL certificates.
 
 ## Directory Structure
 
@@ -26,7 +26,7 @@ openai-api-gateway/
 - `.env-azure`: Environment variables file for sensitive and configurable settings for the Azure OpenAI API gateway.
 - `image/Dockerfile`: Dockerfile to build the NGINX gateway image.
 - `image/gateway-nginx.conf.template`: NGINX configuration file template for setting up the gateway.
-- `image/init.sh`: Initialization script to replace environment variables and start NGINX.
+- `image/init.sh`: Initialization script to replace environment variables, request Let's Encrypt certificates, and start NGINX.
 - `README.md`: Project documentation.
 
 ## Setup
@@ -55,6 +55,8 @@ Environment variables are defined in the `.env` and `.env-azure` files:
 - `CORS_MAX_AGE`: CORS max age (Optional, default is `86400`).
 - `CONTENT_LENGTH`: Content length for pre-flight requests (Optional, default is `0`).
 - `CONTENT_TYPE`: Content type for pre-flight requests (Optional, default is `text/plain charset=UTF-8`).
+- `DOMAIN`: The domain for which the SSL certificate will be obtained.
+- `EMAIL`: The email address for Let's Encrypt registration and renewal notices.
 
 ## Usage
 
